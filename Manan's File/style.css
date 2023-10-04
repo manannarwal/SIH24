@@ -1,0 +1,13 @@
+
+.container {
+    height: 90vh; /* Set the container height to 100% of the viewport height */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center the form horizontally */
+    align-items: center; /* Center the form vertically */
+  }
+  
+  /* Apply styles to the form if needed */
+  form {
+    /* Additional form styles */
+  }
+  

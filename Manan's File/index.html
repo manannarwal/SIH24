@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+        <div class="container">
+    <form>
+        <label for="stationSelect">Select Station:</label>
+        <select id="stationSelect">
+            <option value="Select">Select</option>
+            <option value="Kohat Enclave">Kohat Enclave</option>
+            <option value="Rohini East">Rohini East</option>
+            <option value="Kashmere Gate(Lot-2)">Kashmere Gate(Lot-2)</option>
+            <option value="Noida City Centre">Noida City Centre</option>
+            <option value="Botanical Garden">Botanical Garden</option>
+            <option value="Rajendra Place">Rajendra Place</option>
+            <option value="Shadipur">Shadipur</option>
+            <option value="Patel Nagar">Patel Nagar</option>
+            <option value="Kirti Nagar">Kirti Nagar</option>
+            <option value="Moti Nagar">Moti Nagar</option>
+            <option value="Uttam Nagar East (LOT-II)">Uttam Nagar East (LOT-II)</option>
+            <option value="Uttam Nagar West">Uttam Nagar West</option>
+            <option value="Dwarka Mor">Dwarka Mor</option>
+            <option value="Dwarka">Dwarka</option>
+            <option value="Vinobapuri">Vinobapuri</option>
+            <option value="Kalindi Kunj">Kalindi Kunj</option>
+            <option value="Jasola Vihar Shaheen Bagh">Jasola Vihar Shaheen Bagh</option>
+            <option value="Dhaula Kuan">Dhaula Kuan</option>
+        </select>
+        <br><br>
+        <label for="vehicleType">Type of Vehicle:</label>
+        <select id="vehicleType">
+            <option value="Select">Select</option>
+            <option value="Car">Car/SUV</option>
+            <option value="Two Wheelers (Scooter, Motorbike)">Two Wheelers (Scooter, Motorbike)</option>
+            <option value="Cycle">Cycle</option>
+        </select>
+        <br><br>
+        <label for="vehicleNumber">Enter Vehicle Number:</label>
+            <input type="text" id="vehicleNumber" placeholder="Enter your vehicle number">
+        <br><br>    
+        <label for="parkingTime">Select Parking Time:</label>
+        <select id="parkingTime">
+          <option value="Select">Select</option>
+          <option value="6">Up to 6 hours</option>
+          <option value="12">Up to 12 hours</option>
+          <option value="24">More than 12 hrs, up to 24 hrs</option>
+        </select>
+    <br><br>
+    <button id="calculateButton" type="button">Calculate Charges</button>
+    <br><br>
+            <div id="charges">Parking Charges: ₹0/-</div>
+
+
+
+</div>
+</center>
+    </form>
+</body>
+    <script src="main.js"></script>
+</html>
