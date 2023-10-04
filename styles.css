@@ -1,0 +1,123 @@
+/* Global styles */
+
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+  }
+  
+  a {
+    color: #04AA6D;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Navbar styles */
+  
+  #navbar {
+    background-color: rgba(0, 0, 0, 0.503);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid rgba(255, 14, 1, 0.644);
+  }
+  
+  #nav-logo {
+    background-image: url(logo-no-background.png);
+    background-size: cover;
+    width: 150px;
+    height: 50px;
+  }
+  
+  #nav-logo h3 {
+    color: white;
+    font-size: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Login page styles */
+  
+  .center {
+    margin: 0 auto;
+  }
+  
+  #login-page {
+    background: linear-gradient(to top, #ffffff, #eeeeee);
+    width: 500px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  #center-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #04AA6D;
+  }
+  
+  .login-input-group {
+    margin-bottom: 10px;
+  }
+  
+  .login-input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #04AA6D;
+  }
+  
+  .login-input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  .remember-me-checkbox {
+    margin-bottom: 10px;
+  }
+  
+  .remember-me-checkbox input {
+    margin-right: 5px;
+  }
+  
+  .remember-me-checkbox label {
+    vertical-align: middle;
+    color: #04AA6D;
+  }
+  
+  button {
+    background-color: #04AA6D;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #039562;
+  }
+  
