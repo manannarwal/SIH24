@@ -88,11 +88,6 @@ nav a {
     padding: 12px 30px;
     text-transform: uppercase;
 }
-
-
-
-
-
     /* .dropbtn {
         background-color: #f30000b5;
         color: white;
@@ -100,3 +95,14 @@ nav a {
         border: none;
         cursor: pointer;
     } */
+
+#credits{
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+    margin-top: 20%;
+    height:100px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.503);
+    border-top: 3px solid red;
+}
