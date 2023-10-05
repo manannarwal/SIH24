@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Parking</title>
+    <link rel="stylesheet" href="signup.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+    <div id="bg-image">
+        <div id="navbar">
+            <div id="nav-logo">
+                <!-- <H3>Park X</H3> -->
+            </div>
+            <nav>
+                <ul>
+                  <li><a href="#" id="open-login-popup">Login</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="#" target="_blank">Services</a></li>
+                    <li><a href="contact.html" target="_blank">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="home-page">
+            <div id="dark-layer"></div>
+            <div id="center-heading1">Welcome!
+                <p>Please find the essentials of the page on the bar above</p>
+            </div>
+        </div>
+        <div id="buttons">
+              <a href="#">Explore</a>
+        </div>
+    </div>
+
+    <div id="login-popup" class="popup">
+      <form action="/login" method="post">
+        
+        <div id="center-heading">Login</div>
+        <button type="button" id="close-login-popup">Close</button>
+          <div class="login-input-group">
+              <label for="email">Email Address</label>
+              <input type="email" name="email" id="email" placeholder="Email Address" required autofocus>
+          </div>
+          <div class="login-input-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="Password" required>
+          </div>
+          <div class="remember-me-checkbox">
+              <input type="checkbox" name="remember_me" id="remember_me">
+              <label for="remember_me">Remember Me</label>
+          </div>
+          <button type="submit">Login</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<a href="/forgot-password">Forgot Password?</a><br><br>
+          <p>Don't have an account? <a href="#" id="open-registration-popup">Sign Up</a></p>
+      </form>
+  </div>
+
+  <div id="registration-popup" class="popup">
+    <form action="/register" method="post">
+      
+      <button type="button" id="close-registration-popup">Close</button>
+      <div id="center-heading">Sign Up</div>
+      <div class="login-input-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username" required>
+      </div>
+      <div class="login-input-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" placeholder="Email Address" required>
+      </div>
+      <div class="login-input-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <div id="credits">
+    <center>
+        <p>Copyright © 2023 Team Cypher, IITM</p>
+    </center>  
+
+
+    
+  </body>
+
+  </html>
+
+
+  <script>
+      // JavaScript to handle popup
+  const loginPopup = document.getElementById("login-popup");
+  const registrationPopup = document.getElementById("registration-popup");
+  const openLoginPopupButton = document.getElementById("open-login-popup");
+  const openRegistrationPopupButton = document.getElementById("open-registration-popup");
+  const closeLoginPopupButton = document.getElementById("close-login-popup");
+  const closeRegistrationPopupButton = document.getElementById("close-registration-popup");
+  
+  // Function to open login popup
+  function openLoginPopup() {
+    loginPopup.classList.add("show");
+  }
+  
+  // Function to open registration popup
+  function openRegistrationPopup() {
+    registrationPopup.classList.add("show");
+  }
+  
+  // Function to close login popup
+  function closeLoginPopup() {
+    loginPopup.classList.remove("show");
+  }
+  
+  // Function to close registration popup
+  function closeRegistrationPopup() {
+    registrationPopup.classList.remove("show");
+  }
+  
+  openLoginPopupButton.addEventListener("click", openLoginPopup);
+  openRegistrationPopupButton.addEventListener("click", openRegistrationPopup);
+  closeLoginPopupButton.addEventListener("click", closeLoginPopup);
+  closeRegistrationPopupButton.addEventListener("click", closeRegistrationPopup);
+  
+    $(document).ready(function() {
+    $("#open-login-popup").click(function() {
+      $("#login-popup").show();
+      $("#registration-popup").hide();
+    });
+  
+    $("#open-registration-popup").click(function() {
+      $("#login-popup").hide();
+      $("#registration-popup").show();
+    });
+  
+    // Close login form when close button is clicked
+    $("#close-login-popup").click(function() {
+      $("#login-popup").hide();
+    });
+  
+    // Close registration form when close button is clicked
+    $("#close-registration-popup").click(function() {
+      $("#registration-popup").hide();
+    });
+  
+    // Close the popups when clicking outside of them
+    $(document).mouseup(function(e) {
+      var loginContainer = $("#login-popup");
+      var registrationContainer = $("#registration-popup");
+  
+      if (
+        !loginContainer.is(e.target) &&
+        loginContainer.has(e.target).length === 0 &&
+        !registrationContainer.is(e.target) &&
+        registrationContainer.has(e.target).length === 0
+      ) {
+        loginContainer.hide();
+        registrationContainer.hide();
+      }
+    });
+  });
+  
+  </script>
+
+    
+
