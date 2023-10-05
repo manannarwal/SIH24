@@ -1,68 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Metro Parking</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
+
 <body>
-    <center>
-        <div class="container">
-    <form>
-        <label for="stationSelect"><b>Select Station:</b></label>
-        <select id="stationSelect">
-            <option value="Select">Select</option>
-            <option value="Kohat Enclave">Kohat Enclave</option>
-            <option value="Rohini East">Rohini East</option>
-            <option value="Kashmere Gate(Lot-2)">Kashmere Gate(Lot-2)</option>
-            <option value="Noida City Centre">Noida City Centre</option>
-            <option value="Botanical Garden">Botanical Garden</option>
-            <option value="Rajendra Place">Rajendra Place</option>
-            <option value="Shadipur">Shadipur</option>
-            <option value="Patel Nagar">Patel Nagar</option>
-            <option value="Kirti Nagar">Kirti Nagar</option>
-            <option value="Moti Nagar">Moti Nagar</option>
-            <option value="Uttam Nagar East (LOT-II)">Uttam Nagar East (LOT-II)</option>
-            <option value="Uttam Nagar West">Uttam Nagar West</option>
-            <option value="Dwarka Mor">Dwarka Mor</option>
-            <option value="Dwarka">Dwarka</option>
-            <option value="Vinobapuri">Vinobapuri</option>
-            <option value="Kalindi Kunj">Kalindi Kunj</option>
-            <option value="Jasola Vihar Shaheen Bagh">Jasola Vihar Shaheen Bagh</option>
-            <option value="Dhaula Kuan">Dhaula Kuan</option>
-        </select>
-        <br><br>
-        <label for="vehicleType"><b>Type of Vehicle:</b></label>
-        <select id="vehicleType">
-            <option value="Select">Select</option>
-            <option value="Car">Car/SUV</option>
-            <option value="Two Wheelers (Scooter, Motorbike)">Two Wheelers (Scooter, Motorbike)</option>
-            <option value="Cycle">Cycle</option>
-        </select>
-        <br><br>
-        <label for="vehicleNumber"><b>Enter Vehicle Number:</b></label>
-            <input type="text" id="vehicleNumber" placeholder="Enter your vehicle number">
-        <br><br>    
-        <label for="parkingTime"><b>Select Parking Time:</b></label>
-        <select id="parkingTime">
-          <option value="Select">Select</option>
-          <option value="6">Up to 6 hours</option>
-          <option value="12">Up to 12 hours</option>
-          <option value="24">More than 12 hrs, up to 24 hrs</option>
-        </select>
-    <br><br>
-    <button id="calculateButton" type="button">Calculate Charges</button>
-    <br><br>
-            <div id="charges">Parking Charges: ₹0/-</div>
+    <div id="bg-image">
+        <div id="navbar">
+            <div id="nav-logo">
+                <!-- <H3>Park X</H3> -->
+            </div>
+            <nav>
+                <ul>
+                  <li><a href="#" id="open-login-popup">Login</a></li>
+                    <li><a href="#" target="_blank">About Us</a></li>
+                    <li><a href="#" target="_blank">Services</a></li>
+                    <li><a href="#" target="_blank">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="home-page">
+            <div id="dark-layer"></div>
+            <div id="center-heading1">Welcome!
+                <p>Please find the essentials of the page on the bar above</p>
+            </div>
+        </div>
+        <div id="buttons">
+              <a href="#">Explore</a>
+        </div>
+    </div>
 
+    <div id="login-popup" class="popup">
+      <form action="/login" method="post">
+        
+        <div id="center-heading">Login</div>
+        <button type="button" id="close-login-popup">Close</button>
+          <div class="login-input-group">
+              <label for="email">Email Address</label>
+              <input type="email" name="email" id="email" placeholder="Email Address" required autofocus>
+          </div>
+          <div class="login-input-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="Password" required>
+          </div>
+          <div class="remember-me-checkbox">
+              <input type="checkbox" name="remember_me" id="remember_me">
+              <label for="remember_me">Remember Me</label>
+          </div>
+          <button type="submit">Login</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;<a href="/forgot-password">Forgot Password?</a><br><br>
+          <p>Don't have an account? <a href="#" id="open-registration-popup">Sign Up</a></p>
+      </form>
+  </div>
 
-
-</div>
-</center>
+  <div id="registration-popup" class="popup">
+    <form action="/register" method="post">
+      
+      <button type="button" id="close-registration-popup">Close</button>
+      <div id="center-heading">Sign Up</div>
+      <div class="login-input-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username" required>
+      </div>
+      <div class="login-input-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" placeholder="Email Address" required>
+      </div>
+      <div class="login-input-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Sign Up</button>
     </form>
+  </div>
+
+  <div id="credits">
+    <p>Copyright © 2023 Team Cypher, IITM</p>
+    <pre>All rights reserved.</pre>
+  
+
+
+
+  <script src="main.js"></script>
+
+    
 </body>
-    <script src="main.js"></script>
+
 </html>
