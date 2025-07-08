@@ -1,0 +1,6 @@
+flask
+spacy>=3.4.0,<3.8.0
+scikit-learn
+textblob
+qrcode[pil]
+Pillow

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="/static/payment-gateway.css">
+    <script src="/static/payment-gateway.js"></script>
+</head>
+<body>
+    <section>
+        <h1>Museum Ticket - Payment Gateway</h1>
+        <p>Please complete your payment here & this is a dummy gateway!</p>
+        <br>
+        <div class="form">
+            <p>Kindly confirm your below details once again for the final booking of your tickets:</p>
+            <div class="flex m20">
+                <label>Full Name: *</label>
+                <input type="text" name="name" placeholder="Full Name" class="m10 name" id="name">
+            </div>
+            <div class="flex m20">
+                <label>Email I'd: *</label>
+                <input type="email" name="email" placeholder="Email I'd" class="m10 email" id="email">
+            </div>
+            <div class="midflex m20">
+                <button class="generate_qr" id="next-button">NEXT</button>
+            </div>
+        </div>
+
+        <div class="qr_code">
+            <p>Scan the QR Code with any UPI App and pay the amount, then download your tickets!</p>
+            <center><img src="" alt="QR CODE" class="get_qr m10"></center>
+
+            <div class="or">
+                <div class="line"></div>
+                <p class="text">OR</p>
+                <div class="line"></div>
+            </div>
+            <div class="upi_apps">
+                <div class="app_">
+                    <a href="#" target="_blank">
+                        <img src="https://1000logos.net/wp-content/uploads/2020/04/Google-Pay-Logo.jpg" class="app_logo">
+                        <p>GPay</p>
+                    </a>
+                    <div class="space"></div>
+                    <a href="#" target="_blank">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvkvpH2vYwIUoijFNnQ3OWx6zbXrxY2jyATg&s" class="app_logo">
+                        <p>Paytm</p>
+                    </a>
+                </div>
+                <div class="app_">
+                    <a href="#" target="_blank">
+                        <img src="https://i.pinimg.com/originals/dd/53/85/dd5385fb5b726cb74171930c4db4ca5b.png" class="app_logo">
+                        <p>PhonePe</p>
+                    </a>
+                    <div class="space"></div>
+                    <a href="#" target="_blank">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1jghQBdDvq0Zm3wW45U053BMX_RGZ8DkrwcPrmP7-L7W0O1tz0M72mYhJtw8olaSGGqo" class="app_logo">
+                        <p>Bank</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex m20">
+                <input type="text" name="id" placeholder="Enter Comments - if any!" class="m10 id">
+            </div>
+            <div class="midflex m20">
+                <a href="/ticket-confirmation" target="_blank"><button class="booking">BOOK THE TICKETS</button></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
