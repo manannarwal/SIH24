@@ -1,0 +1,5 @@
+# Alternative minimal requirements if scikit-learn is still too large
+flask==2.3.3
+qrcode==7.4.2
+Pillow==9.5.0
+# Remove scikit-learn and use basic text matching instead

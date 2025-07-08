@@ -1,14 +1,12 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
-import spacy
 import pickle
 import json
 import qrcode
 import random
 import re
 from sklearn.feature_extraction.text import CountVectorizer
-from textblob import TextBlob
 
-# Try to import ollama, make it optional for Vercel deployment
+# Try to import optional dependencies
 try:
     import ollama
     OLLAMA_AVAILABLE = True
@@ -24,26 +22,15 @@ with open('classifier.pkl', 'rb') as model_file:
 with open('vectorizer.pkl', 'rb') as vectorizer_file:
     vectorizer = pickle.load(vectorizer_file)
 
-# Load SpaCy model with error handling for Vercel
-try:
-    nlp = spacy.load("en_core_web_sm")
-    SPACY_AVAILABLE = True
-except OSError:
-    print("Warning: SpaCy model not found. Spell correction will be disabled.")
-    SPACY_AVAILABLE = False
-    nlp = None
-
 # Loading the intents dataset
 with open('intents.json', encoding='utf-8') as f:
     intents = json.load(f)
 
 def correct_spelling(text):
-    if SPACY_AVAILABLE:
-        corrected_text = TextBlob(text).correct()
-        return str(corrected_text)
-    else:
-        # Fallback: return text as-is if SpaCy is not available
-        return text
+    # Simple text cleaning without external dependencies
+    # Remove extra spaces and convert to lowercase
+    cleaned_text = re.sub(r'\s+', ' ', text.strip().lower())
+    return cleaned_text
 
 def predict_intent(user_input):
     user_input = [correct_spelling(user_input)]
