@@ -1,0 +1,125 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        img {
+            margin: 20px 0;
+        }
+        h1 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmed!</h1>
+        <p>Your ticket ID is: <strong>{{ ticket_id }}</strong></p>
+        <img src="{{ url_for('static', filename='ticket_qr.png') }}" alt="Ticket QR Code">
+        <p>Show this QR code at the entrance.</p>
+        <p>Thankyou for booking with us!</p>
+    </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        img {
+            margin: 20px 0;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .email-button {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .email-button:hover {
+            background-color: #000000;
+        }
+        form {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmed!</h1>
+        <p>Your ticket ID is: <strong>{{ ticket_id }}</strong></p>
+        <img id="qr-code" src="{{ url_for('static', filename='ticket_qr.png') }}" alt="Ticket QR Code">
+        <p>Show this QR code at the entrance.</p>
+        <p>Thank you for booking with us!</p>
+        
+        <!-- Web3Forms integration -->
+        <form id="ticket-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Replace with your Access Key -->
+            <input type="hidden" name="access_key" value="ae2039f8-e473-4d20-8f79-1c32343e8684">
+            <input type="hidden" name="subject" value="Your Ticket Confirmation">
+            <input type="hidden" name="message" id="email-message">
+            <input type="hidden" name="ticket_id" value="{{ ticket_id }}">
+            <input type="hidden" name="qr_code_url" id="qr-code-url">
+
+            <!-- Submit Button -->
+            <button type="submit" class="email-button">Click here to receive your tickets via email</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get QR code URL
+            var qrCodeElement = document.getElementById('qr-code');
+            var qrCodeUrl = qrCodeElement.src;
+
+            // Set the email message with QR code URL
+            var emailMessage = "Your ticket ID is {{ ticket_id }}. Show the attached QR code at the entrance. QR Code URL: " + qrCodeUrl;
+            document.getElementById('email-message').value = emailMessage;
+
+            // Set the QR code URL in the hidden form field
+            document.getElementById('qr-code-url').value = qrCodeUrl;
+        });
+    </script>
+</body>
+</html>

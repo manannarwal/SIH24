@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        img {
+            margin: 20px 0;
+        }
+        h1 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmed!</h1>
+        <p>Your ticket ID is: <strong>{{ ticket_id }}</strong></p>
+        <img src="{{ url_for('static', filename='ticket_qr.png') }}" alt="Ticket QR Code">
+        <p>Show this QR code at the entrance.</p>
+        <p>Thankyou for booking with us!</p>
+    </div>
+</body>
+</html>

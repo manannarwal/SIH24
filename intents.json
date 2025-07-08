@@ -1,0 +1,78 @@
+{
+    "intents": [
+        {
+            "intent": "greeting",
+            "text": ["hi", "hello", "hey", "good morning", "good evening", "hii", "hiii", "heyyy", "hello there", "greetings", "hi there", "hey there", "good afternoon", "namaste", "welcome", "start", "begin"],
+            "responses": ["Welcome to MuseMate! Your ultimate destination for booking museum tickets across India. I'm here to help you with ticket bookings, provide information about museums, answer your queries, and guide you through the entire process. How can I assist you today?"]
+        },
+        {
+            "intent": "how_are_you",
+            "text": ["how are you?", "how's it going?", "what's up?", "how are you doing?"],
+            "responses": ["I'm just a bot I don't feel anyway specific, but I'm here to help! How can I assist you today?"]
+        },
+        {
+            "intent": "thank_you",
+            "text": ["thank you", "thankyou", "thanks", "thnku", "thnx", "thanks", "thank you very much", "thanks a lot"],
+            "responses": ["Glad I could help! If you have any other queries, feel free to ask."]
+        },
+        {
+            "intent": "sorry",
+            "text": ["sorry", "I'm sorry", "my apologies", "I apologize"],
+            "responses": ["No problem! How can I assist you further?"]
+        },
+        {
+            "intent": "ticket_booking",
+            "text": ["I want to book a ticket", "Can I get a ticket?", "Book a ticket for me", "I want to book tickets", "Can I book tickets?"],
+            "responses": ["Sure! How many tickets would you like to book?"]
+        },
+        {
+            "intent": "feedback",
+            "text": ["I have feedback", "I want to give feedback", "How can I give feedback?", "Feedback", "Give feedback"],
+            "responses": ["Please provide your feedback, and we'll be happy to hear from you."]
+        },
+        {
+            "intent": "museum_info",
+            "text": ["Tell me about the exhibits", "What is there to see?", "Where should I visit in the museum?", "Information about the museum"],
+            "responses": ["The museum has various exhibits including art, history, and science. Please let me know if you need more details."]
+        },
+        {
+            "intent": "goodbye",
+            "text": ["bye", "no", "goodbye", "see you later", "farewell"],
+            "responses": ["Okay Goodbye, have a great day! You can ping me if you have any other queries."]
+        },
+        {
+            "intent": "ok",
+            "text": ["ok", "okay", "alright"],
+            "responses": ["Got it! How can I assist you further?"]
+        },
+        {
+            "intent": "great",
+            "text": ["great", "awesome", "wow"],
+            "responses": ["I'm glad to hear that! How can I assist you next?"]
+        },
+        {
+            "intent": "yes",
+            "text": ["yes", "yeah", "yep", "yup"],
+            "responses": ["Great! What would you like me to do next?"]
+        },
+        {
+            "intent": "list_of_museums",
+            "text": ["list", "lists", "all", "sort"],
+            "responses": [
+                "Here is a list of museums you might be interested in:\n\n1. National Museum Institute, New Delhi\n2. Allahabad Museum, Prayagraj\n3. Indian Museum, Kolkata\n4. Indira Gandhi Rashtriya Manav Sangrahalaya, Bhopal\n5. National Council of Science Museums, Kolkata\n6. Salar Jung Museum, Hyderabad\n7. Victoria Memorial Hall, Kolkata"
+            ]
+        },
+        {
+            "intent": "national_museum_institute",
+            "text": ["National Institute", "National Institute, New Delhi", "Institute Delhi", "New Delhi", "National"],
+            "responses": [
+                "The National Museum Institute, located in New Delhi, India, is a premier institution dedicated to the study, research, and preservation of cultural heritage. Established in 1989 as a part of the National Museum, the institute offers advanced academic programs in museology, conservation, and art history. It aims to foster a deeper understanding of India's rich cultural legacy and train professionals in museum management and conservation techniques. Through its comprehensive curriculum and research initiatives, the National Museum Institute plays a crucial role in preserving and promoting India's historical and artistic treasures."
+            ]
+        },              
+        {
+            "intent": "fallback",
+            "text": ["", ""],
+            "responses": ["Sorry, I didn't get that. Can you please rephrase your question?"]
+        }
+    ]
+}
