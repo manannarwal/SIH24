@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 import json
-import qrcode
 import random
 import re
 
@@ -10,6 +9,12 @@ try:
     OLLAMA_AVAILABLE = True
 except ImportError:
     OLLAMA_AVAILABLE = False
+
+try:
+    import qrcode
+    QR_AVAILABLE = True
+except ImportError:
+    QR_AVAILABLE = False
 
 app = Flask(__name__)
 
@@ -178,8 +183,16 @@ def payment_gateway():
 @app.route('/ticket-confirmation')
 def ticket_confirmation():
     ticket_id = f"MUSEUM-{random.randint(1000, 9999)}"
-    img = qrcode.make(ticket_id)
-    img.save("static/ticket_qr.png")
+    
+    # Generate QR code if library is available
+    if QR_AVAILABLE:
+        try:
+            img = qrcode.make(ticket_id)
+            img.save("static/ticket_qr.png")
+        except:
+            # Fallback: no QR code generation
+            pass
+    
     return render_template('ticket-confirmation.html', ticket_id=ticket_id)
 
 @app.route('/book-ticket', methods=['POST'])
