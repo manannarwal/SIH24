@@ -1,10 +1,8 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
-import pickle
 import json
 import qrcode
 import random
 import re
-from sklearn.feature_extraction.text import CountVectorizer
 
 # Try to import optional dependencies
 try:
@@ -14,13 +12,6 @@ except ImportError:
     OLLAMA_AVAILABLE = False
 
 app = Flask(__name__)
-
-# Loading the trained model and vectorizer
-with open('classifier.pkl', 'rb') as model_file:
-    classifier = pickle.load(model_file)
-
-with open('vectorizer.pkl', 'rb') as vectorizer_file:
-    vectorizer = pickle.load(vectorizer_file)
 
 # Loading the intents dataset
 with open('intents.json', encoding='utf-8') as f:
@@ -32,11 +23,42 @@ def correct_spelling(text):
     cleaned_text = re.sub(r'\s+', ' ', text.strip().lower())
     return cleaned_text
 
-def predict_intent(user_input):
-    user_input = [correct_spelling(user_input)]
-    vectorized_input = vectorizer.transform(user_input)
-    intent = classifier.predict(vectorized_input)[0]
-    return intent
+def predict_intent_simple(user_input):
+    """Simple keyword-based intent prediction without ML"""
+    user_input = correct_spelling(user_input)
+    
+    # Check each intent for keyword matches
+    best_intent = "fallback"
+    best_score = 0
+    
+    for intent_data in intents['intents']:
+        intent_name = intent_data['intent']
+        patterns = intent_data['text']
+        
+        # Count matches for this intent
+        score = 0
+        for pattern in patterns:
+            pattern_lower = pattern.lower()
+            # Exact match gets high score
+            if user_input == pattern_lower:
+                score += 10
+            # Partial match gets lower score
+            elif pattern_lower in user_input or user_input in pattern_lower:
+                score += 5
+            # Word-by-word match
+            else:
+                user_words = set(user_input.split())
+                pattern_words = set(pattern_lower.split())
+                common_words = user_words.intersection(pattern_words)
+                if common_words:
+                    score += len(common_words)
+        
+        # Update best match
+        if score > best_score:
+            best_score = score
+            best_intent = intent_name
+    
+    return best_intent
 
 def generate_response(intent):
     for i in intents['intents']:
@@ -138,17 +160,12 @@ def home():
 def chat():
     user_input = request.json['message'].lower()
     
-    # Predict intent using the trained model
-    intent = predict_intent(user_input)
+    # Predict intent using simple keyword matching
+    intent = predict_intent_simple(user_input)
     response = generate_response(intent)
     
-    # Get confidence score
-    vectorized_input = vectorizer.transform([user_input])
-    probabilities = classifier.predict_proba(vectorized_input)[0]
-    confidence = max(probabilities)
-    
-    # If confidence is very low (below 0.15), use Ollama for better response
-    if confidence < 0.15:
+    # If intent is fallback (no good match), use advanced response
+    if intent == 'fallback':
         response = getOllamaResponse(user_input)
     
     return jsonify({"response": response})
@@ -199,4 +216,6 @@ def book_ticket():
 handler = app
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
